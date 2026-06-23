@@ -17,7 +17,7 @@ def WikiSearch(arg: str) -> str:
         for result in results[:3]:
             try:
                 page = wikipedia.page(result)
-                content.append(f"Title: {page.title}\n{page.content[:1000]}")
+                content.append(f"Title: {page.title}\n{page.content[:10000]}")
             except:
                 continue
         return "\n---\n".join(content)
@@ -38,7 +38,7 @@ def ArxivSearch(arg: str) -> str:
         
         papers = []
         for result in results:
-            papers.append(f"Title: {result.title}\nSummary: {result.summary[:1000]}")
+            papers.append(f"Title: {result.title}\nSummary: {result.summary[:10000]}")
         
         return "\n---\n".join(papers) if papers else "No papers found."
     except Exception as e:
